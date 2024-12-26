@@ -1,0 +1,9 @@
+ISBN: 9526373
+Title: Pride and Prejudice
+Quantity: 2
+Price: 1200.0
+Time: 20240114_204625
+---------------
+
+Total Bill Value: 2400.0
+

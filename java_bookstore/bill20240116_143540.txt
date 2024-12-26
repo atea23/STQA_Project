@@ -1,0 +1,9 @@
+ISBN: 182729
+Title: prova2
+Quantity: 1
+Price: 700.0
+Time: 20240116_143540
+---------------
+
+Total Bill Value: 700.0
+

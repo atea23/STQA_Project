@@ -1,0 +1,9 @@
+ISBN: 8273737
+Title: Harry Potter and the Deathly Hallows
+Quantity: 1
+Price: 1600.0
+Time: 20240114_213307
+---------------
+
+Total Bill Value: 1600.0
+

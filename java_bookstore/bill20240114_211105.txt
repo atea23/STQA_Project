@@ -1,0 +1,9 @@
+ISBN: 2636234
+Title: Harry Potter and the Order of the Phoenix
+Quantity: 1
+Price: 1550.0
+Time: 20240114_211105
+---------------
+
+Total Bill Value: 1550.0
+

@@ -1,0 +1,9 @@
+ISBN: 378662
+Title: prova4
+Quantity: 1
+Price: 1150.0
+Time: 20240116_163720
+---------------
+
+Total Bill Value: 1150.0
+

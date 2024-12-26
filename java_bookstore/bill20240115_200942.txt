@@ -1,0 +1,9 @@
+ISBN: 9282616
+Title: Harry Potter and the Chamber of Secrets
+Quantity: 1
+Price: 1390.0
+Time: 20240115_200942
+---------------
+
+Total Bill Value: 1390.0
+

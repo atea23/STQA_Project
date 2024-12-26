@@ -1,0 +1,9 @@
+ISBN: Little Women
+Title: 1232145
+Quantity: 1
+Price: 900.0
+Time: 20240115_182657
+---------------
+
+Total Bill Value: 900.0
+

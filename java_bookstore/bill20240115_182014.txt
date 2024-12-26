@@ -1,0 +1,9 @@
+ISBN: 95364743
+Title: To Kill a Mockingbird
+Quantity: 1
+Price: 1350.0
+Time: 20240115_182014
+---------------
+
+Total Bill Value: 1350.0
+

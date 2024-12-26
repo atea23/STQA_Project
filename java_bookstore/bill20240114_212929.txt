@@ -1,0 +1,16 @@
+ISBN: 96253762
+Title: Hamlet
+Quantity: 1
+Price: 1400.0
+Time: 20240114_212929
+---------------
+
+ISBN: 9526373
+Title: Pride and Prejudice
+Quantity: 1
+Price: 1200.0
+Time: 20240114_212929
+---------------
+
+Total Bill Value: 2600.0
+

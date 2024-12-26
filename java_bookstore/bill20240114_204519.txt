@@ -1,0 +1,9 @@
+ISBN: 98734567
+Title: Harry Potter and the Philosopher's Stone
+Quantity: 2
+Price: 1700.0
+Time: 20240114_204519
+---------------
+
+Total Bill Value: 3400.0
+

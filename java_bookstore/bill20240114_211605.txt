@@ -1,0 +1,9 @@
+ISBN: 8723632
+Title: Harry Potter and the Prisoner of Azkaban
+Quantity: 2
+Price: 1450.0
+Time: 20240114_211605
+---------------
+
+Total Bill Value: 2900.0
+

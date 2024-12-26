@@ -1,0 +1,9 @@
+ISBN: 96253762
+Title: Hamlet
+Quantity: 1
+Price: 1400.0
+Time: 20240114_212750
+---------------
+
+Total Bill Value: 1400.0
+

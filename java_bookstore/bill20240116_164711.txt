@@ -1,0 +1,9 @@
+ISBN: 2872873
+Title: prova
+Quantity: 1
+Price: 1200.0
+Time: 20240116_164711
+---------------
+
+Total Bill Value: 1200.0
+

@@ -1,0 +1,9 @@
+ISBN: 8376438
+Title: prova3
+Quantity: 1
+Price: 1000.0
+Time: 20240116_160349
+---------------
+
+Total Bill Value: 1000.0
+
