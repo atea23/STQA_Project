@@ -61,4 +61,14 @@ public class Bill implements Serializable {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd_HHmmss");
         return formatter.format(timestamp);
     }
+
+    public void setTimestamp(String timestampString) { //added to simplify equivalence class testing
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd_HHmmss");
+            this.timestamp = formatter.parse(timestampString);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid timestamp format: " + timestampString);
+        }
+    }
+
 }
