@@ -10,8 +10,11 @@ import Model.User;
 
 public class UserController {
 
-    private ArrayList<User> users;
-    private File file;
+    public ArrayList<User> users;
+    public File file;
+
+
+
 
     public UserController() {
         users = new ArrayList<>();
@@ -21,7 +24,28 @@ public class UserController {
         }
     }
 
-    private void readUsers() {
+    public UserController(File file) {
+        users = new ArrayList<>();
+        this.file = file;
+        if (file.exists()) {
+            readUsers();
+        }
+    }
+
+    // New methods to be overridden or mocked during testing
+    public FileInputStream getFileInputStream() throws Exception {
+        return new FileInputStream(file);
+    }
+
+    public ObjectInputStream getObjectInputStream(FileInputStream fis) throws Exception {
+        return new ObjectInputStream(fis);
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void readUsers() {
         try {
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -34,7 +58,16 @@ public class UserController {
         }
     }
 
-    private void writeUsers() {
+    public File getFile() {
+        return file;
+    }
+
+
+    public ObjectOutputStream createObjectOutputStream(FileOutputStream fos) throws Exception {
+        return new ObjectOutputStream(fos);
+    }
+
+    public void writeUsers() {
         try {
             FileOutputStream fos = new FileOutputStream(file);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -82,7 +115,7 @@ public class UserController {
         return null;
     }
 
-    private void setUserRole(User user, String password) {
+    public void setUserRole(User user, String password) {
         if (password.equals("admin")) {
             user.setRole(User.UserRole.ADMIN);
         } else if (password.equals("librarian")) {
@@ -91,4 +124,5 @@ public class UserController {
             user.setRole(User.UserRole.MANAGER);
         }
     }
+
 }

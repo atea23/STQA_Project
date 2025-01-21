@@ -1,6 +1,7 @@
 package com.example.java_bookstore;
 
 import java.io.*;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -13,23 +14,62 @@ public class BookController {
 
     public BookController() {
         books = new ArrayList<>();
-        file = new File("books.bin");
+        file = new File("books.bin");  
         if (file.exists()) {
             readBooks();
         }
     }
+    
+    public BookController(boolean loadBooks) {
+        books = new ArrayList<>();
+        file = new File("books.bin");
+        if (loadBooks && file.exists()) {
+            readBooks();
+        }
+    }
 
-    private void readBooks() {
+    
+ // Protected methods to allow mocking for testing
+    public FileInputStream getFileInputStream() throws Exception {
+        return new FileInputStream(file);
+    }
+
+    public ObjectInputStream getObjectInputStream() throws Exception {
+        return new ObjectInputStream(new FileInputStream(file));
+    }
+
+    protected FileOutputStream getFileOutputStream() throws Exception {
+        return new FileOutputStream(file);
+    }
+
+    protected ObjectOutputStream getObjectOutputStream() throws Exception {
+        return new ObjectOutputStream(new FileOutputStream(file));
+    }
+
+    public void readBooks() {
         try {
-            FileInputStream fileIS = new FileInputStream(file);
-            ObjectInputStream objectIS = new ObjectInputStream(fileIS);
+            ObjectInputStream objectIS = getObjectInputStream();
             books = (ArrayList<Book>) objectIS.readObject();
-            fileIS.close();
+            System.out.println(books);
             objectIS.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("After read");
     }
+    
+    public void setFile(File tempFile) {
+        this.file = tempFile;
+
+        // Reload books from the new file if it exists
+        if (tempFile.exists()) {
+            readBooks();
+        } else {
+            // If the file doesn't exist, reset the books list to empty
+            books = new ArrayList<>();
+        }
+    }
+
 
     public void addBook(Book book) {
         books.add(book);
@@ -75,12 +115,16 @@ public class BookController {
 
     public boolean categoryExists(Category category) {
         for (Book book : books) {
-            if (book.getCategory().equals(category)) {
-                return true;
+            // Iterate through the book's categories
+            for (Category c : book.getCategory()) {
+                if (c.equals(category)) { // Compare using equals
+                    return true;
+                }
             }
         }
         return false;
     }
+
 
     public void addCategory(Category...category) {
         for(Category categories : category)

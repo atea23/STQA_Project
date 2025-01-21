@@ -51,7 +51,7 @@ public class ManagerScene {
     private static final String CATEGORIES_FILE_PATH = "categories.txt";
     private static boolean printBillButtonEnabled = false;
     Administrator administrator = new Administrator();
-    private static Button printBillButton;
+    public static Button printBillButton;
     private boolean implementOther;
     private Button implementOtherButton;
     private TextField searchField;

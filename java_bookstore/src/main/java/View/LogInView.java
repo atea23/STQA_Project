@@ -33,34 +33,44 @@ public class LogInView {
 
         p.setStyle("-fx-background-color: #ADD8E6;");
 
+        // Welcome label
         Label welcomeLabel = new Label("Welcome to Our Bookstore!");
         welcomeLabel.setFont(new Font("Arial", 20));
         welcomeLabel.setStyle("-fx-text-fill: #000080;");
         p.add(welcomeLabel, 0, 0, 2, 1);
 
+        // Email label and field
         Label email = new Label("Email");
-        TextField emailF = new TextField();
         email.setStyle("-fx-text-fill: #000080;");
+        TextField emailF = new TextField();
+        emailF.setId("emailField"); // Set fx:id
         p.add(email, 0, 1);
         p.add(emailF, 1, 1);
 
+        // Password label and field
         Label passw = new Label("Password");
-        PasswordField passwF = new PasswordField();
         passw.setStyle("-fx-text-fill: #000080;");
+        PasswordField passwF = new PasswordField();
+        passwF.setId("passwordField"); // Set fx:id
         p.add(passw, 0, 2);
         p.add(passwF, 1, 2);
 
+        // Buttons
         Button login = new Button("Log in");
+        login.setId("loginButton"); // Set fx:id
         Button signin = new Button("Sign up");
+        signin.setId("signUpButton"); // Set fx:id
 
         login.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         signin.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
 
+        // Add buttons to layout
         HBox h = new HBox();
         h.getChildren().addAll(login, signin);
         h.setSpacing(10);
         p.add(h, 1, 4);
 
+        // Login button action
         login.setOnAction(e -> {
             UserController uc = new UserController();
             User user = uc.login(emailF.getText(), passwF.getText());
@@ -83,11 +93,13 @@ public class LogInView {
             }
         });
 
+        // Sign-up button action
         signin.setOnAction(e -> {
             SignUpView sv = new SignUpView();
             stage.setScene(sv.showView(stage));
         });
 
+        // Create and return scene
         Scene sc = new Scene(p, 400, 300);
         return sc;
     }

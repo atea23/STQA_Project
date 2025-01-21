@@ -23,11 +23,11 @@ public class Book implements Serializable {
 
     public Book(String isbn, String title, String supplier, Date purchasedDate, double purchasedPrice, double originalPrice, double sellingPrice, int stock, Author author, int enteredStock) {
         this.isbn = isbn;
-        this.title = title;
+        this.title = title; 
         this.supplier = supplier;
         this.purchasedDate = purchasedDate;
         this.purchasedPrice = purchasedPrice;
-        this.originalPrice = originalPrice;
+        this.originalPrice = originalPrice; 
         this.sellingPrice = sellingPrice;
         this.author = author;
         this.stock = stock;

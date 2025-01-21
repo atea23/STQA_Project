@@ -51,12 +51,13 @@ public class AdminScene  {
     public Scene showView(Stage stage, Administrator administrator) {
         this.stage = stage;
         this.administrator = administrator;
-
+ 
         VBox firstVBox = new VBox(10);
 
         firstVBox.setStyle("-fx-background-color: #ADD8E6;");
 
         Label adminLabel = new Label("Welcome to the Admin scene!");
+        adminLabel.setId("adminWelcomeLabel");
         adminLabel.setStyle("-fx-text-fill: #000080;");
         firstVBox.getChildren().add(adminLabel);
 
@@ -64,18 +65,23 @@ public class AdminScene  {
         displayEmplButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         displayEmplButton.setMinWidth(200);
         displayEmplButton.setOnAction(e -> DisplayEmployeesScene());
+        displayEmplButton.setId("displayEmployeesButton");
 
         Button manageEmplButton = new Button("Manage Employees");
+        manageEmplButton.setId("manageEmployeesButton");
         manageEmplButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         manageEmplButton.setMinWidth(200);
         manageEmplButton.setOnAction(e -> ManageEmployeesScene());
+
 
         Button revokePermissionsButton = new Button("Revoke permissions");
         revokePermissionsButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         revokePermissionsButton.setMinWidth(200);
         revokePermissionsButton.setOnAction(e -> revokePermissionsScene());
+        revokePermissionsButton.setId("revokePermissionsButton");
 
         Button goToLibrarianButton = new Button("Go to Librarian Scene");
+        goToLibrarianButton.setId("goToLibrarianButton");
         goToLibrarianButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         goToLibrarianButton.setMinWidth(200);
         goToLibrarianButton.setOnAction(e -> {
@@ -84,6 +90,7 @@ public class AdminScene  {
             Scene librarianSceneView = librarianScene.showView(stage);
             stage.setScene(librarianSceneView);
         });
+
 
         Button goToManagerButton = new Button("Go to Manager Scene");
         goToManagerButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
@@ -94,16 +101,20 @@ public class AdminScene  {
             Scene managerSceneView = managerScene.showView(stage);
             stage.setScene(managerSceneView);
         });
+        goToManagerButton.setId("goToManagerButton");
 
         Button viewSalariesButton = new Button("View Financials");
         viewSalariesButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         viewSalariesButton.setMinWidth(200);
         viewSalariesButton.setOnAction(e -> viewFinancials());
+        viewSalariesButton.setId("viewFinancialsButton");
 
         firstVBox.getChildren().addAll(goToLibrarianButton, goToManagerButton, displayEmplButton, manageEmplButton, viewSalariesButton, revokePermissionsButton);
         firstVBox.setPadding(new Insets(20));
 
         return new Scene(firstVBox, 400, 300);
+        
+        
     }
     private void viewFinancials() {
         Librarian librarian1 = new Librarian();
@@ -242,16 +253,19 @@ public class AdminScene  {
         registerButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         registerButton.setPrefWidth(150);
         registerButton.setOnAction(e -> registerEmployee());
+        registerButton.setId("registerButton");
 
         Button modifyButton = new Button("Modify");
         modifyButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         modifyButton.setPrefWidth(150);
         modifyButton.setOnAction(e -> modifyEmployee());
+        modifyButton.setId("modifyButton");
 
         Button deleteButton = new Button("Delete");
         deleteButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         deleteButton.setPrefWidth(150);
         deleteButton.setOnAction(e -> deleteEmployee());
+        deleteButton.setId("deleteButton");
 
         Button backButton = new Button("Back to Admin");
         backButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
@@ -260,6 +274,7 @@ public class AdminScene  {
             Scene scene = adminScene.showView(stage, administrator);
             stage.setScene(scene);
         });
+        backButton.setId("backToAdminButton");
 
         manageEmVBox.getChildren().addAll(registerButton, modifyButton, deleteButton,backButton);
         manageEmVBox.setPadding(new Insets(20)); // Add padding around the VBox
@@ -278,35 +293,45 @@ public class AdminScene  {
 
         Label fNameLabel = new Label("First Name:");
         TextField fNameField = new TextField();
+        fNameField.setId("firstNameField"); // Set ID for test lookup
 
         Label lNameLabel = new Label("Last Name:");
         TextField lNameField = new TextField();
+        lNameField.setId("lastNameField"); // Set ID for test lookup
 
-        Label emailLabel=new Label("Email");
+        Label emailLabel = new Label("Email");
         TextField emailField = new TextField();
+        emailField.setId("emailField"); // Set ID for test lookup
 
         Label genLabel = new Label("Gender:");
         ComboBox<String> genComboBox = new ComboBox<>();
         genComboBox.getItems().addAll("Female", "Male");
+        genComboBox.setId("genderComboBox"); // Set ID for test lookup
 
         Label birthdayLabel = new Label("Birthday:");
         TextField birthdayField = new TextField();
+        birthdayField.setId("birthdayField"); // Set ID for test lookup
 
         Label EmIdLabel = new Label("ID:");
         TextField EmIdField = new TextField();
+        EmIdField.setId("idField"); // Set ID for test lookup
 
         Label roleLabel = new Label("Role:");
         ComboBox<User.UserRole> roleComboBox = new ComboBox<>();
         roleComboBox.getItems().addAll(User.UserRole.values());
+        roleComboBox.setId("roleComboBox"); // Set ID for test lookup
 
         Label salLabel = new Label("Salary:");
         ComboBox<Integer> salComboBox = new ComboBox<>();
         salComboBox.getItems().addAll(500, 600, 700, 800, 900);
+        salComboBox.setId("salaryComboBox"); // Set ID for test lookup
 
         Label phoneLabel = new Label("Phone:");
         TextField phoneField = new TextField();
+        phoneField.setId("phoneField"); // Set ID for test lookup
 
         Button enterButton = new Button("Enter");
+        enterButton.setId("enterButton"); // Set ID for test lookup
         enterButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         enterButton.setOnAction(e -> {
             // Validation
@@ -339,7 +364,6 @@ public class AdminScene  {
                 showAlert("Error", "Phone should be in the format +355 6X XXXX XXX.");
                 return;
             }
-
 
             if (genComboBox.getValue() == null) {
                 showAlert("Error", "Please select a gender.");

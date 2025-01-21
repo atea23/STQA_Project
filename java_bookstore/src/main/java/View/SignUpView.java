@@ -30,70 +30,97 @@ public class SignUpView {
 
         pane.setStyle("-fx-background-color: #ADD8E6;"); // Light blue background
 
+        // First Name
         Label firstNameL = new Label("First Name");
+        firstNameL.setId("firstNameLabel"); // Set fx:id
         TextField firstNameField = new TextField();
-        firstNameL.setStyle("-fx-text-fill: #000080;"); // Dark blue text color
+        firstNameField.setId("firstNameField"); // Set fx:id
+        firstNameL.setStyle("-fx-text-fill: #000080;");
         pane.add(firstNameL, 0, 0);
         pane.add(firstNameField, 1, 0);
 
-        Label LastNameL = new Label("Last Name");
-        TextField LastNameField = new TextField();
-        LastNameL.setStyle("-fx-text-fill: #000080;"); // Dark blue text color
-        pane.add(LastNameL, 0, 1);
-        pane.add(LastNameField, 1, 1);
+        // Last Name
+        Label lastNameL = new Label("Last Name");
+        lastNameL.setId("lastNameLabel"); // Set fx:id
+        TextField lastNameField = new TextField();
+        lastNameField.setId("lastNameField"); // Set fx:id
+        lastNameL.setStyle("-fx-text-fill: #000080;");
+        pane.add(lastNameL, 0, 1);
+        pane.add(lastNameField, 1, 1);
 
-        Label EmailL = new Label("Email");
-        TextField EmailField = new TextField();
-        EmailL.setStyle("-fx-text-fill: #000080;"); // Dark blue text color
-        pane.add(EmailL, 0, 2);
-        pane.add(EmailField, 1, 2);
+        // Email
+        Label emailL = new Label("Email");
+        emailL.setId("emailLabel"); // Set fx:id
+        TextField emailField = new TextField();
+        emailField.setId("emailField"); // Set fx:id
+        emailL.setStyle("-fx-text-fill: #000080;");
+        pane.add(emailL, 0, 2);
+        pane.add(emailField, 1, 2);
 
-        Label PasswordL = new Label("Password");
+        // Password
+        Label passwordL = new Label("Password");
+        passwordL.setId("passwordLabel"); // Set fx:id
         PasswordField passF = new PasswordField();
-        PasswordL.setStyle("-fx-text-fill: #000080;"); // Dark blue text color
-        pane.add(PasswordL, 0, 3);
+        passF.setId("passwordField"); // Set fx:id
+        passwordL.setStyle("-fx-text-fill: #000080;");
+        pane.add(passwordL, 0, 3);
         pane.add(passF, 1, 3);
 
-        Label VPasswordL = new Label("Verify Password");
-        PasswordField VpassF = new PasswordField();
-        VPasswordL.setStyle("-fx-text-fill: #000080;"); // Dark blue text color
-        pane.add(VPasswordL, 0, 4);
-        pane.add(VpassF, 1, 4);
+        // Verify Password
+        Label vPasswordL = new Label("Verify Password");
+        vPasswordL.setId("verifyPasswordLabel"); // Set fx:id
+        PasswordField vPassF = new PasswordField();
+        vPassF.setId("verifyPasswordField"); // Set fx:id
+        vPasswordL.setStyle("-fx-text-fill: #000080;");
+        pane.add(vPasswordL, 0, 4);
+        pane.add(vPassF, 1, 4);
+
+        // Gender
+        Label genderL = new Label("Gender");
+        genderL.setId("genderLabel"); // Set fx:id
+        RadioButton male = new RadioButton("Male");
+        male.setId("maleRadioButton"); // Set fx:id
+        RadioButton female = new RadioButton("Female");
+        female.setId("femaleRadioButton"); // Set fx:id
+        RadioButton other = new RadioButton("Other");
+        other.setId("otherRadioButton"); // Set fx:id
 
         ToggleGroup tg = new ToggleGroup();
-        Label genderL = new Label("Gender");
-        RadioButton male = new RadioButton("Male");
-        RadioButton female = new RadioButton("Female");
-        RadioButton other = new RadioButton("Other");
         male.setToggleGroup(tg);
         female.setToggleGroup(tg);
         other.setToggleGroup(tg);
 
-        genderL.setStyle("-fx-text-fill: #000080;"); // Dark blue text color
+        genderL.setStyle("-fx-text-fill: #000080;");
         pane.add(genderL, 0, 5);
-        HBox b = new HBox();
-        b.getChildren().addAll(male, female, other);
-        pane.add(b, 1, 5);
+        HBox genderBox = new HBox(10, male, female, other);
+        pane.add(genderBox, 1, 5);
 
-        Label ProfL = new Label("Select your status: ");
-        ComboBox<String> prof = new ComboBox<String>();
-        prof.getItems().add("Librarian");
-        prof.getItems().add("Administrator");
-        prof.getItems().add("Manager");
-        ProfL.setStyle("-fx-text-fill: #000080;"); // Dark blue text color
-        pane.add(ProfL, 0, 6);
+        // Status (Profession)
+        Label profL = new Label("Select your status:");
+        profL.setId("statusLabel"); // Set fx:id
+        ComboBox<String> prof = new ComboBox<>();
+        prof.setId("statusComboBox"); // Set fx:id
+        prof.getItems().addAll("Librarian", "Administrator", "Manager");
+        profL.setStyle("-fx-text-fill: #000080;");
+        pane.add(profL, 0, 6);
         pane.add(prof, 1, 6);
 
+        // Remember Me
         CheckBox remember = new CheckBox("Remember Me");
-        remember.setStyle("-fx-text-fill: #000080;"); // Dark blue text color
+        remember.setId("rememberCheckBox"); // Set fx:id
+        remember.setStyle("-fx-text-fill: #000080;");
         pane.add(remember, 1, 7);
 
-        Button button = new Button("Sign Up");
-        button.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;"); // Slightly darker light blue button color
-        pane.add(button, 1, 8);
+        // Sign Up Button
+        Button signUpButton = new Button("Sign Up");
+        signUpButton.setId("signUpButton"); // Set fx:id
+        signUpButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
+        pane.add(signUpButton, 1, 8);
 
+        // Back Button
         Button backButton = new Button("Back");
-        backButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;"); // Slightly darker light blue button color
+        backButton.setId("backButton"); // Set fx:id
+        backButton.setStyle("-fx-background-color: #87CEEB; -fx-text-fill: #000080;");
         backButton.setOnAction(e -> {
             LogInView logInView = new LogInView();
             Scene loginScene = logInView.showView(stage);
@@ -102,49 +129,37 @@ public class SignUpView {
         backButton.setMinWidth(120);
         pane.add(backButton, 1, 9);
 
-        UserController uc = new UserController();
-
-        button.setOnAction(new EventHandler<ActionEvent>() {
+        // Sign-Up Action
+        signUpButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 String firstName = firstNameField.getText();
-                String lastName = LastNameField.getText();
-                String email = EmailField.getText();
-                String passwordField = passF.getText();
-                String verifyPassword = VpassF.getText();
-                String gender = "";
-                if (male.isSelected()) {
-                    gender = male.getText();
-                } else if (female.isSelected()) {
-                    gender = female.getText();
-                } else {
-                    gender = other.getText();
-                }
-                boolean isRemeberMe = remember.isSelected();
+                String lastName = lastNameField.getText();
+                String email = emailField.getText();
+                String password = passF.getText();
+                String verifyPassword = vPassF.getText();
+                String gender = tg.getSelectedToggle() == male ? "Male" : tg.getSelectedToggle() == female ? "Female" : "Other";
+                boolean isRememberMe = remember.isSelected();
 
-                boolean isRegistered = uc.signUp(firstName, lastName, email, passwordField, verifyPassword, gender, isRemeberMe, User.role);
+                UserController uc = new UserController();
+                boolean isRegistered = uc.signUp(firstName, lastName, email, password, verifyPassword, gender, isRememberMe, User.role);
 
                 if (!isRegistered) {
                     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                     errorAlert.setHeaderText("Error");
                     errorAlert.setContentText("Registration failed. Please check your information.");
                     errorAlert.show();
-
                 } else {
-                    Alert successA = new Alert(Alert.AlertType.INFORMATION);
-                    successA.setHeaderText("Registration Successful");
-                    successA.setContentText("You have successfully registered!");
-                    successA.showAndWait();
-                    LogInView lv = new LogInView();
-                    stage.setScene(lv.showView(stage));
-                    successA.close();
-
+                    Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                    successAlert.setHeaderText("Registration Successful");
+                    successAlert.setContentText("You have successfully registered!");
+                    successAlert.showAndWait();
+                    LogInView logInView = new LogInView();
+                    stage.setScene(logInView.showView(stage));
                 }
-                uc.print();
             }
         });
 
-        Scene sc = new Scene(pane, 400, 400);
-        return sc;
+        return new Scene(pane, 400, 400);
     }
 }

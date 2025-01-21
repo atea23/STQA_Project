@@ -20,8 +20,8 @@ public class Bill implements Serializable {
     public double getPrice() {
         return price;
     }
-    public String getTitle(){
-        return title;
+    public String getTitle(){ 
+        return title; 
     }
     private static double totalBillValue = 0.0;  // Initialize totalBillValue
 
@@ -48,7 +48,7 @@ public class Bill implements Serializable {
 
     @Override
     public String toString() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd_HHmmss"); 
         return "ISBN: " + isbn + "\n" +
                 "Title: " + title + "\n" +
                 "Quantity: " + quantity + "\n" +
@@ -61,7 +61,7 @@ public class Bill implements Serializable {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd_HHmmss");
         return formatter.format(timestamp);
     }
-
+    
     public void setTimestamp(String timestampString) { //added to simplify equivalence class testing
         try {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd_HHmmss");
@@ -70,5 +70,4 @@ public class Bill implements Serializable {
             throw new IllegalArgumentException("Invalid timestamp format: " + timestampString);
         }
     }
-
 }
