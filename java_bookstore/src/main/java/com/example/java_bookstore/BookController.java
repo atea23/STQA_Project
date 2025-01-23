@@ -42,7 +42,7 @@ public class BookController {
         return new FileOutputStream(file);
     }
 
-    protected ObjectOutputStream getObjectOutputStream() throws Exception {
+    public ObjectOutputStream getObjectOutputStream() throws Exception {
         return new ObjectOutputStream(new FileOutputStream(file));
     }
 
@@ -57,7 +57,17 @@ public class BookController {
         }
         System.out.println("After read");
     }
-    
+
+    public void writeBooks() {
+        try (ObjectOutputStream objectOS = getObjectOutputStream()) {
+            objectOS.writeObject(books);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+
     public void setFile(File tempFile) {
         this.file = tempFile;
 
@@ -97,17 +107,7 @@ public class BookController {
     }
 
 
-    public void writeBooks() {
-        try {
-            FileOutputStream fileOS = new FileOutputStream(file);
-            ObjectOutputStream objectOS = new ObjectOutputStream(fileOS);
-            objectOS.writeObject(books);
-            objectOS.close();
-            fileOS.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
+
 
     public ArrayList<Book> getListOfBooks() {
         return books;

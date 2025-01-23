@@ -165,13 +165,22 @@ class BookControllerTest {
 
     @Test
     void testWriteBooks() throws Exception {
+        // Mock the ObjectOutputStream
+        doReturn(mockObjectOutputStream).when(bookController).getObjectOutputStream();
+
+        // Create a book and add it to the BookController
         Author author = new Author("Jane", "Doe", Gender.FEMALE);
         Book book = new Book("12345", "Test Book", "Supplier", new Date(), 100.0, 120.0, 150.0, 10, author, 5);
-
         bookController.addBook(book);
 
-        // Verify writeBooks() was invoked
+        // Verify that writeBooks() was called
         verify(bookController, times(1)).writeBooks();
+
+        // Verify that the correct data was written to the ObjectOutputStream
+        List<Book> expectedBooks = new ArrayList<>();
+        expectedBooks.add(book);
+        verify(mockObjectOutputStream).writeObject(expectedBooks);
     }
+
 }
 
